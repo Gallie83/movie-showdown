@@ -35,6 +35,7 @@ function App() {
     </Header>
     <ContentContainer>
       <ContentCard />
+      <ContentCard />
 
     </ContentContainer>
   </Container>
