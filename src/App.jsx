@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ContentCard from './components/ContentCard';
 
 const Container = styled.div`
 display:flex;
@@ -15,8 +16,16 @@ padding: 1rem;
 font-size: 3rem;
 font-weight: bold;
 box-shadow: 0 3px 6px 0 #555;
-
 `;
+
+const ContentContainer = styled.div`
+display:flex;
+flex-direction:row;
+flex-wrap: wrap;
+padding: 2rem;
+justify-content: space-evenly;
+`;
+
 
 function App() {
 
@@ -24,6 +33,10 @@ function App() {
     <Header>
       Movie Showdown
     </Header>
+    <ContentContainer>
+      <ContentCard />
+
+    </ContentContainer>
   </Container>
 
 }
