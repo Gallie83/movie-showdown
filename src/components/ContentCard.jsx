@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import React, { useState, useEffect } from 'react';
+
 
 const ContentComponent = styled.div`
 display:flex;
@@ -29,6 +31,7 @@ const MovieInfo = styled.div`
 display:flex;
 flex-direction: row;
 justify-content: space-between;
+font-size: 1rem;
 `;
 
 function ContentCard() {

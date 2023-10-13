@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import ContentCard from './components/ContentCard';
+import Genres from './components/Genres';
+import Movies from './components/Movies';
 
 const Container = styled.div`
 display:flex;
@@ -33,6 +35,8 @@ function App() {
     <Header>
       Movie Showdown
     </Header>
+    <Movies></Movies>
+    {/* <Genres></Genres> */}
     <ContentContainer>
       <ContentCard />
       <ContentCard />
