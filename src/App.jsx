@@ -32,6 +32,7 @@ justify-content: space-evenly;
 function App() {
 
   return <Container>
+    <nav>Movies</nav>
     <Header>
       Movie Showdown
     </Header>

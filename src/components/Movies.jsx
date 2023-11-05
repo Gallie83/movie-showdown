@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ContentCard from './ContentCard';
 
 const Movies = () => {
 
@@ -9,7 +10,7 @@ const Movies = () => {
     const fetchMovies = async () => {
         try {
             const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US`);
-            console.log(data);
+            setMovies(data?.data.results);
         } catch (error) {
             console.log(error);
         }
@@ -18,10 +19,12 @@ const Movies = () => {
     useEffect(() => {
         fetchMovies();
     }, []);
-
+    console.log(movies);
     return (
         <div>
-            <h1>Movies</h1>
+            {movies?.map(movie => (
+                <ContentCard movie={movie} />
+            ))}
         </div>
     )
 
