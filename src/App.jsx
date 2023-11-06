@@ -39,9 +39,7 @@ function App() {
     <Movies></Movies>
     {/* <Genres></Genres> */}
     <ContentContainer>
-      <ContentCard />
-      <ContentCard />
-
+      {/* <ContentCard /> */}
     </ContentContainer>
   </Container>
 

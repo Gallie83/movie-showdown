@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import React, { useState, useEffect } from 'react';
+import { img500x500 } from "../utils/imageLink";
 
 
 const ContentComponent = styled.div`
@@ -34,13 +35,14 @@ justify-content: space-between;
 font-size: 1rem;
 `;
 
-function ContentCard() {
+function ContentCard({ movie }) {
+    console.log(movie);
     return <ContentComponent>
-        <MoviePoster src="https://m.media-amazon.com/images/M/MV5BMTY1MTE4NzAwM15BMl5BanBnXkFtZTcwNzg3Mjg2MQ@@._V1_SX300.jpg" />
-        <MovieTitle>Title Here</MovieTitle>
+        <MoviePoster src={`${img500x500}/${movie?.poster_path}`} />
+        <MovieTitle>{movie?.title}</MovieTitle>
         <MovieInfo>
-            <span>Released:</span>
-            <span>Type:</span>
+            <span>Released:{movie?.release_date}</span>
+            <span>Rating:{movie?.vote_average}</span>
         </MovieInfo>
     </ContentComponent>;
 }
