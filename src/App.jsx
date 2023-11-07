@@ -3,11 +3,7 @@ import ContentCard from './components/ContentCard';
 import Genres from './components/Genres';
 import Movies from './components/Movies';
 
-const Container = styled.div`
-display:flex;
-flex-direction:column;
 
-`;
 
 const Header = styled.div`
 display:flex;
@@ -20,28 +16,20 @@ font-weight: bold;
 box-shadow: 0 3px 6px 0 #555;
 `;
 
-const ContentContainer = styled.div`
-display:flex;
-flex-direction:row;
-flex-wrap: wrap;
-padding: 2rem;
-justify-content: space-evenly;
-`;
+
 
 
 function App() {
 
-  return <Container>
+  return <>
     <nav>Movies</nav>
     <Header>
       Movie Showdown
     </Header>
     <Movies></Movies>
     {/* <Genres></Genres> */}
-    <ContentContainer>
-      {/* <ContentCard /> */}
-    </ContentContainer>
-  </Container>
+    {/* <ContentCard /> */}
+  </>
 
 }
 
