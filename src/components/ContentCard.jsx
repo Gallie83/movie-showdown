@@ -36,7 +36,6 @@ font-size: 1rem;
 `;
 
 function ContentCard({ movie }) {
-    console.log(movie);
     return <ContentComponent>
         <MoviePoster src={`${img500x500}/${movie?.poster_path}`} />
         <MovieTitle>{movie?.title}</MovieTitle>

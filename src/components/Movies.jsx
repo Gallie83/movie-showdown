@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ContentCard from './ContentCard';
+import Container from 'react-bootstrap/Container';
+
 
 const Movies = () => {
 
@@ -19,11 +21,15 @@ const Movies = () => {
     useEffect(() => {
         fetchMovies();
     }, []);
-    console.log(movies);
+    // console.log(movies);
     return (
         <div>
             {movies?.map(movie => (
-                <ContentCard movie={movie} />
+                // <Container fluid>
+
+                <ContentCard movie={movie} key={movie?.id} />
+
+                // </Container>
             ))}
         </div>
     )
