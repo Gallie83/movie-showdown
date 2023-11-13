@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Movies.css'
 import axios from 'axios';
 import ContentCard from './ContentCard';
 import Container from 'react-bootstrap/Container';
@@ -21,17 +22,16 @@ const Movies = () => {
     useEffect(() => {
         fetchMovies();
     }, []);
-    // console.log(movies);
     return (
-        <div>
+        <Container className='fetch-container'>
             {movies?.map(movie => (
-                // <Container fluid>
+                <Container className='content-container'>
 
-                <ContentCard movie={movie} key={movie?.id} />
+                    <ContentCard movie={movie} key={movie?.id} />
 
-                // </Container>
+                </Container>
             ))}
-        </div>
+        </Container>
     )
 
 }

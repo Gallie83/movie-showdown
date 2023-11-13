@@ -1,0 +1,17 @@
+.fetch-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+.content-container {
+    flex-direction: column;
+    display: flex;
+    padding: 1rem;
+    width: 17rem;
+    box-shadow: 0 3px 10px 0 #aaa;
+    cursor: pointer;
+}
