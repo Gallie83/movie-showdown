@@ -1,0 +1,10 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    color: black;
+    padding: 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    box-shadow: 0 3px 6px 0 #555;
+}
