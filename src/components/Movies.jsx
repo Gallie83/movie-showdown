@@ -3,11 +3,14 @@ import '../styles/Movies.css'
 import axios from 'axios';
 import ContentCard from './ContentCard';
 import Container from 'react-bootstrap/Container';
+import Genres from './Genres';
 
 
 const Movies = () => {
 
     const [movies, setMovies] = useState([]);
+    const [genres, setGenres] = useState([]);
+    console.log(genres);
 
     // FETCH MOVIES
     const fetchMovies = async () => {
@@ -23,15 +26,19 @@ const Movies = () => {
         fetchMovies();
     }, []);
     return (
-        <Container className='fetch-container'>
-            {movies?.map(movie => (
-                <Container className='content-container'>
+        <>
+            <Genres genres={genres} setGenres={setGenres} />
+            <Container className='fetch-container'>
+                {movies?.map(movie => (
+                    <Container className='content-container'>
 
-                    <ContentCard movie={movie} key={movie?.id} />
+                        <ContentCard movie={movie} key={movie?.id} />
 
-                </Container>
-            ))}
-        </Container>
+                    </Container>
+                ))}
+
+            </Container>
+        </>
     )
 
 }

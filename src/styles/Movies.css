@@ -1,6 +1,7 @@
 .fetch-container {
     display: flex;
     flex-direction: row;
+    width: auto;
 }
 
 .content-container {
@@ -10,4 +11,5 @@
     width: 17rem;
     box-shadow: 0 3px 10px 0 #aaa;
     cursor: pointer;
+    margin: 1rem;
 }

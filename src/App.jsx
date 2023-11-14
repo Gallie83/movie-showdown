@@ -22,6 +22,8 @@ function App() {
       Movie Showdown
     </nav>
 
+    <Genres></Genres>
+
     <Movies></Movies>
     {/* </Container> */}
     {/* <Genres></Genres> */}
