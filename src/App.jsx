@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import ContentCard from './components/ContentCard';
+import MovieBoard from './components/movie-board';
 import Genres from './components/Genres';
 import Movies from './components/Movies';
-import Container from 'react-bootstrap/Container';
 import './styles/App.css'
 
 
@@ -24,12 +24,9 @@ function App() {
 
     <Genres></Genres>
 
-    <Movies></Movies>
-    {/* </Container> */}
-    {/* <Genres></Genres> */}
-    {/* <ContentContainer> */}
-    {/* <ContentCard /> */}
-    {/* </ContentContainer> */}
+    <MovieBoard>
+      {/* <Movies></Movies> */}
+    </MovieBoard>
   </>
 
 }
