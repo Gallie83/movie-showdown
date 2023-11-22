@@ -30,7 +30,7 @@ const Movies = () => {
             <Genres genres={genres} setGenres={setGenres} />
             <Container className='fetch-container'>
                 {movies?.slice(0, 5).map(movie => (
-                    <Container className='content-container'>
+                    <Container className='content-container m-1 mt-5'>
 
                         <ContentCard movie={movie} key={movie?.id} />
 

@@ -1,15 +1,16 @@
 .fetch-container {
     display: flex;
-    flex-direction: row;
-    width: auto;
+    max-width: 1rem;
+
 }
 
 .content-container {
     flex-direction: column;
     display: flex;
+    background-color: rgb(245, 255, 196);
     padding: 1rem;
-    width: 17rem;
     box-shadow: 0 3px 10px 0 #aaa;
+    border: 1px solid black;
     cursor: pointer;
     margin: 1rem;
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { img500x500 } from "../utils/imageLink";
 
 const MoviePoster = styled.img`
-height:22rem;
+height:15rem;
 `;
 
 const MovieTitle = styled.span`

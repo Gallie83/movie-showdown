@@ -4,6 +4,7 @@ import MovieBoard from './components/movie-board';
 import Genres from './components/Genres';
 import Movies from './components/Movies';
 import './styles/App.css'
+import board from './assets/movie-board.jpg'
 
 
 // const ContentContainer = styled.div`
@@ -22,11 +23,12 @@ function App() {
       Movie Showdown
     </nav>
 
-    <Genres></Genres>
-
+    {/* <Genres></Genres> */}
     <MovieBoard>
-      {/* <Movies></Movies> */}
+
     </MovieBoard>
+    {/* <img src={board} alt="" /> */}
+
   </>
 
 }

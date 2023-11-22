@@ -2,14 +2,16 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/MovieBoard.css';
 import image from "../assets/movie-board.jpg"
-import { render } from 'react-dom';
+import Movies from '../components/Movies';
+
 
 
 function MovieBoard() {
 
     return (
-        <Container className='movie-board'>
-            hello
+        <Container className='movie-board p-5 m-5'>
+            <Movies></Movies>
+            {/* hello */}
         </Container>
     );
 }
