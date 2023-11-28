@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/MovieBoard.css';
-import image from "../assets/movie-board.jpg"
 import Movies from '../components/Movies';
 
 
@@ -9,10 +8,11 @@ import Movies from '../components/Movies';
 function MovieBoard() {
 
     return (
-        <Container className='movie-board p-5 m-5'>
-            <Movies></Movies>
-            {/* hello */}
-        </Container>
+        <>
+            <Container className='movie-board p-5 mx-auto mt-2'>
+                <Movies></Movies>
+            </Container>
+        </>
     );
 }
 
