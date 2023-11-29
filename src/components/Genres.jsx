@@ -4,8 +4,7 @@ import '../styles/Genres.css'
 import Button from 'react-bootstrap/Button';
 
 
-const Genres = ({ genres, setGenres }) => {
-    console.log(genres);
+const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
     const fetchGenres = async () => {
         const { data } = await axios.get(
             `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US`
@@ -13,15 +12,19 @@ const Genres = ({ genres, setGenres }) => {
         setGenres(data?.genres);
     };
 
+
     useEffect(() => {
         fetchGenres();
-
     }, []);
+
+    const addGenres = genre => {
+        setSelectedGenres([...selectedGenres, genre]);
+    }
 
     return (
         <>
             {genres?.map(genre => (
-                <button class="button">{genre?.name}</button>
+                <button onClick={() => addGenres(genre)} key={genre?.id} className="button">{genre?.name} </button>
             ))}
         </>
     )

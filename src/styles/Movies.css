@@ -1,7 +1,8 @@
 .fetch-container {
     display: flex;
     max-width: 1rem;
-
+    background-image: url(../assets/movie-board.jpg);
+    background-size: cover;
 }
 
 .content-container {

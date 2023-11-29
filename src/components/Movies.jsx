@@ -10,7 +10,8 @@ const Movies = () => {
 
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
-    console.log(genres);
+    const [selectedGenres, setSelectedGenres] = useState([]);
+    console.log(selectedGenres);
 
     // FETCH MOVIES
     const fetchMovies = async () => {
@@ -27,9 +28,10 @@ const Movies = () => {
     }, []);
     return (
         <>
-            <Genres genres={genres} setGenres={setGenres} />
+            <Genres genres={genres} setGenres={setGenres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
             <Container className='fetch-container'>
                 {movies?.slice(0, 5).map(movie => (
+
                     <Container className='content-container m-1 mt-5'>
 
                         <ContentCard movie={movie} key={movie?.id} />
