@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { img500x500 } from "../utils/imageLink";
 
 const MoviePoster = styled.img`
-height:15rem;
+height:18rem;
 `;
 
 const MovieTitle = styled.span`

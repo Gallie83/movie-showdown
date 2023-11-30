@@ -1,5 +1,4 @@
 import MovieBoard from './components/movie-board';
-import Genres from './components/Genres';
 import Movies from './components/Movies';
 import './styles/App.css'
 
@@ -13,9 +12,9 @@ function App() {
 
     {/* <Genres></Genres> */}
     <MovieBoard>
-
     </MovieBoard>
-    {/* <img src={board} alt="" /> */}
+    {/* <Movies></Movies> */}
+
 
   </>
 

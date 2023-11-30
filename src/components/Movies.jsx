@@ -13,6 +13,8 @@ const Movies = () => {
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
 
+    const [randomMovies, setRandomMovies] = useState([]);
+
     // Genres user chooses to filter by
     const genreIds = genreID(selectedGenres);
 
@@ -29,11 +31,30 @@ const Movies = () => {
     useEffect(() => {
         fetchMovies();
     }, [selectedGenres]);
+
+
+    // Trying to return 5 random movies to display but array returns as empty
+    // const handleRandomMovie = () => {
+    //     const random = [];
+    //     for (let i = 0; i < 5; i++) {
+    //         random.push(movies.splice(Math.floor(Math.random() * movies.length), 1))
+    //         console.log(random);
+    //     }
+    //     setRandomMovies(random);
+    // }
+
+    // useEffect(() => {
+    //     handleRandomMovie();
+    // }, []);
+
+
+    // console.log(movies.length);
     return (
         <>
             <Genres genres={genres} setGenres={setGenres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
             <Container className='fetch-container'>
-                {movies?.slice(0, 5).map(movie => (
+                {/* Returns random section of 5 movies and maps to ContentCard */}
+                {movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => (
 
                     <Container className='content-container m-1 mt-5'>
 
