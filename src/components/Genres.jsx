@@ -17,15 +17,28 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
         fetchGenres();
     }, []);
 
+    // Adds users genre choices to filter
     const addGenres = genre => {
         setSelectedGenres([...selectedGenres, genre]);
         setGenres(genres?.filter(g => g?.id !== genre?.id));
     }
 
+    // Removes users genre choices from filter
+    const removeGenres = genre => {
+        setSelectedGenres(selectedGenres?.filter(selected => selected?.id !== genre?.id));
+        setGenres([...genres, genre])
+    }
+
+
+
     return (
         <>
+            {selectedGenres?.map(genre => (
+                <button onClick={() => removeGenres(genre)} key={genre?.id} className="button bg-warning text-danger">{genre?.name} </button>
+
+            ))}
             {genres?.map(genre => (
-                <button onClick={() => addGenres(genre)} key={genre?.id} className="button">{genre?.name} </button>
+                <button onClick={() => addGenres(genre)} key={genre?.id} className="button bg-danger">{genre?.name} </button>
             ))}
         </>
     )

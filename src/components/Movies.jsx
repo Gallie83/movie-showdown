@@ -12,12 +12,14 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
-    console.log(genreID(selectedGenres));
+
+    // Genres user chooses to filter by
+    const genreIds = genreID(selectedGenres);
 
     // FETCH MOVIES
     const fetchMovies = async () => {
         try {
-            const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US`);
+            const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US&with_genres=${genreIds}`);
             setMovies(data?.data.results);
         } catch (error) {
             console.log(error);
@@ -26,7 +28,7 @@ const Movies = () => {
 
     useEffect(() => {
         fetchMovies();
-    }, []);
+    }, [selectedGenres]);
     return (
         <>
             <Genres genres={genres} setGenres={setGenres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
