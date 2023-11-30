@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContentCard from './ContentCard';
 import Container from 'react-bootstrap/Container';
 import Genres from './Genres';
+import genreID from '../utils/genreID';
 
 
 const Movies = () => {
@@ -11,7 +12,7 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
-    console.log(selectedGenres);
+    console.log(genreID(selectedGenres));
 
     // FETCH MOVIES
     const fetchMovies = async () => {

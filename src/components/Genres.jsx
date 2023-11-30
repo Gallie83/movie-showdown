@@ -19,6 +19,7 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
 
     const addGenres = genre => {
         setSelectedGenres([...selectedGenres, genre]);
+        setGenres(genres?.filter(g => g?.id !== genre?.id));
     }
 
     return (
