@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 
 const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
+
     const fetchGenres = async () => {
         const { data } = await axios.get(
             `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US`
