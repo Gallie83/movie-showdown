@@ -1,4 +1,4 @@
-import MovieBoard from './components/movie-board';
+// import MovieBoard from './components/movie-board';
 import Movies from './components/Movies';
 import './styles/App.css'
 
@@ -6,7 +6,7 @@ import './styles/App.css'
 function App() {
 
   return <>
-    <nav className='nav mx-auto'>
+    <nav className='nav'>
       Movie Showdown
     </nav>
 

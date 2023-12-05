@@ -10,13 +10,12 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 function ContentCard({ movie }) {
     return <div className="content-card">
         <img className="movie-poster" src={`${img500x500}/${movie?.poster_path}`} />
-        <span className="movie-title">{movie?.title}</span>
+        <div className="movie-title mx-auto">{movie?.title}</div>
         <div className="movie-info">
             <span>({movie?.release_date})</span>
             <span><FontAwesomeIcon icon={faStar} />{movie?.vote_average}</span>
         </div>
     </div>;
 }
-
 
 export default ContentCard;

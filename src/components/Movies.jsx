@@ -57,9 +57,7 @@ const Movies = () => {
                 {movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => (
 
                     <Container className='content-container m-1 mt-5'>
-
                         <ContentCard movie={movie} key={movie?.id} />
-
                     </Container>
                 ))}
 

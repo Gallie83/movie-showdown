@@ -13,9 +13,9 @@
     margin: 1rem 0;
 
     /* Prevent long titles from overflowing */
-    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .movie-info {

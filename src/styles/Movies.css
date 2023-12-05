@@ -1,14 +1,12 @@
 .fetch-container {
     display: flex;
     max-width: 1rem;
-    background-image: url(../assets/movie-board.jpg);
-    background-size: cover;
 }
 
 .content-container {
     flex-direction: column;
     display: flex;
-    background-color: rgb(245, 255, 196);
+    background-color: red;
     padding: 1rem;
     box-shadow: 0 3px 10px 0 #aaa;
     border: 1px solid black;
