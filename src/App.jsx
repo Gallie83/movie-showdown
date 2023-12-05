@@ -11,9 +11,9 @@ function App() {
     </nav>
 
     {/* <Genres></Genres> */}
-    <MovieBoard>
-    </MovieBoard>
-    {/* <Movies></Movies> */}
+    {/* <MovieBoard>
+    </MovieBoard> */}
+    <Movies></Movies>
 
 
   </>
