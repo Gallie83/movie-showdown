@@ -6,12 +6,12 @@ import Container from 'react-bootstrap/Container';
 import Genres from './Genres';
 import genreID from '../utils/genreID';
 
-
 const Movies = () => {
 
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [selectedMovies, setSelectedMovies] = useState([]);
 
     const [randomMovies, setRandomMovies] = useState([]);
 
@@ -47,18 +47,25 @@ const Movies = () => {
     //     handleRandomMovie();
     // }, []);
 
-
     // console.log(movies.length);
     return (
         <>
-            <Genres genres={genres} setGenres={setGenres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
+            <Genres
+                genres={genres}
+                setGenres={setGenres}
+                selectedGenres={selectedGenres}
+                setSelectedGenres={setSelectedGenres}
+                movies={movies}
+                selectedMovies={selectedMovies}
+                setSelectedMovies={setSelectedMovies} />
             <Container className='fetch-container'>
                 {/* Returns random section of 5 movies and maps to ContentCard */}
-                {movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => (
+                {selectedMovies.map(selectedMovie => (
 
                     <Container className='content-container m-1 mt-5'>
-                        <ContentCard movie={movie} key={movie?.id} />
+                        <ContentCard movie={selectedMovie} key={selectedMovie?.id} />
                     </Container>
+
                 ))}
 
             </Container>

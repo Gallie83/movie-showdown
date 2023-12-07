@@ -1,10 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import '../styles/Genres.css'
-import Button from 'react-bootstrap/Button';
 
-
-const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
+const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, selectedMovies, setSelectedMovies }) => {
 
     const fetchGenres = async () => {
         const { data } = await axios.get(
@@ -30,17 +28,25 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres }) => {
         setGenres([...genres, genre])
     }
 
-
+    const populateSelectedMovies = function () {
+        const output = [];
+        movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => {
+            // setSelectedMovies([...selectedMovies, movie])
+            output.push(movie);
+        })
+        setSelectedMovies(output);
+        console.log(selectedMovies);
+    }
 
     return (
         <>
             {selectedGenres?.map(genre => (
                 <button onClick={() => removeGenres(genre)} key={genre?.id} className="button bg-warning text-danger">{genre?.name} </button>
-
             ))}
             {genres?.map(genre => (
                 <button onClick={() => addGenres(genre)} key={genre?.id} className="button bg-danger">{genre?.name} </button>
             ))}
+            <button onClick={() => populateSelectedMovies()} disabled={!selectedGenres?.length}>Showdown</button>
         </>
     )
 }
