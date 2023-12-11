@@ -13,10 +13,6 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
         setGenres(data?.genres);
     };
 
-    useEffect(() => {
-        fetchGenres();
-    }, []);
-
     // Adds users genre choices to filter
     const addGenres = genre => {
         setSelectedGenres([...selectedGenres, genre]);
@@ -60,21 +56,25 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
     }
 
     useEffect(() => {
+        fetchGenres();
         randomNum();
+    }, []);
+
+    useEffect(() => {
         fetchMovies();
-        // populateSelectedMovies();
-    }, [selectedGenres]);
+    }, [selectedGenres])
 
     // Button clicked to generate random movies 
     const runShowdown = async () => {
+        randomNum();
         await fetchMovies();
         populateSelectedMovies();
-        if (selectedMovies.length < 5) {
-            randomNum();
-            fetchMovies();
-            populateSelectedMovies();
-            console.log('check')
-        }
+        // if (selectedMovies.length < 5) {
+        //     randomNum();
+        //     fetchMovies();
+        //     populateSelectedMovies();
+        //     console.log('check')
+        // }
     }
 
     return (
