@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Movies.css'
-import axios from 'axios';
 import ContentCard from './ContentCard';
 import Container from 'react-bootstrap/Container';
 import Genres from './Genres';
-import genreID from '../utils/genreID';
 
 const Movies = () => {
 
@@ -12,8 +10,7 @@ const Movies = () => {
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [selectedMovies, setSelectedMovies] = useState([]);
-
-    const [randomMovies, setRandomMovies] = useState([]);
+    const [randomNumber, setRandomNumber] = useState([]);
 
     // Genres user chooses to filter by
     // const genreIds = genreID(selectedGenres);
@@ -59,6 +56,8 @@ const Movies = () => {
                 setMovies={setMovies}
                 selectedMovies={selectedMovies}
                 setSelectedMovies={setSelectedMovies}
+                randomNumber={randomNumber}
+                setRandomNumber={setRandomNumber}
 
             />
             <Container className='fetch-container'>

@@ -3,15 +3,15 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Genres.css'
 import genreID from '../utils/genreID';
 
-const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, setMovies, selectedMovies, setSelectedMovies }) => {
+const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, setMovies, selectedMovies, setSelectedMovies, randomNumber, setRandomNumber }) => {
 
+    // Returns all available genres from API
     const fetchGenres = async () => {
         const { data } = await axios.get(
             `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US`
         );
         setGenres(data?.genres);
     };
-
 
     useEffect(() => {
         fetchGenres();
@@ -29,8 +29,27 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
         setGenres([...genres, genre])
     }
 
+    // Random number to be used for API page search
+    const randomNum = function () {
+        const random = [];
+        random.push(Math.floor(Math.random() * 100))
+        setRandomNumber(random);
+    }
+
+    // Get request to API for movies with selected genre
+    const fetchMovies = async () => {
+        try {
+            const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US&with_genres=${genreID(selectedGenres)}&page=${randomNumber}`);
+            setMovies(data?.data.results);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     // Stores 5 random movies from the fetchMovies request in array and sets them as seletedMovies
     const populateSelectedMovies = function () {
+        console.log(movies);
+
         const output = [];
         movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => {
             // setSelectedMovies([...selectedMovies, movie])
@@ -40,30 +59,31 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
         console.log(selectedMovies);
     }
 
+    useEffect(() => {
+        randomNum();
+        fetchMovies();
+        // populateSelectedMovies();
+    }, [selectedGenres]);
 
-    const fetchMovies = async () => {
-        try {
-            const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_MOVIE_KEY}&language=en-US&with_genres=${genreID(selectedGenres)}`);
-            setMovies(data?.data.results);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
+    // Button clicked to generate random movies 
     const runShowdown = async () => {
         await fetchMovies();
-        setTimeout(await fetchMovies(), 100);
-        setTimeout(populateSelectedMovies(), 100);
-        // fetchMovies().then(() => populateSelectedMovies());
+        populateSelectedMovies();
+        if (selectedMovies.length < 5) {
+            randomNum();
+            fetchMovies();
+            populateSelectedMovies();
+            console.log('check')
+        }
     }
 
     return (
         <>
             {selectedGenres?.map(genre => (
-                <button onClick={() => removeGenres(genre)} key={genre?.id} className="button bg-warning text-danger">{genre?.name} </button>
+                <button onClick={() => removeGenres(genre)} className="button bg-warning text-danger">{genre?.name} </button>
             ))}
             {genres?.map(genre => (
-                <button onClick={() => addGenres(genre)} key={genre?.id} className="button bg-danger">{genre?.name} </button>
+                <button onClick={() => addGenres(genre)} className="button bg-danger">{genre?.name} </button>
             ))}
             <button onClick={() => runShowdown()} disabled={!selectedGenres?.length}>Showdown</button>
         </>
