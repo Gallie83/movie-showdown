@@ -11,6 +11,8 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin: 1rem 0;
+    font-family: 'Montserrat';
+
 
     /* Prevent long titles from overflowing */
     text-overflow: ellipsis;

@@ -48,8 +48,8 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
 
         const output = [];
         movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => {
-            // setSelectedMovies([...selectedMovies, movie])
             output.push(movie);
+            console.log(movie);
         })
         setSelectedMovies(output);
         console.log(selectedMovies);
@@ -69,23 +69,26 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
         randomNum();
         await fetchMovies();
         populateSelectedMovies();
-        // if (selectedMovies.length < 5) {
-        //     randomNum();
-        //     fetchMovies();
-        //     populateSelectedMovies();
-        //     console.log('check')
-        // }
+        if (selectedMovies.length < 5) {
+            // randomNum();
+            // await fetchMovies();
+            populateSelectedMovies();
+            console.log('check')
+        }
     }
 
     return (
         <>
-            {selectedGenres?.map(genre => (
-                <button onClick={() => removeGenres(genre)} className="button bg-warning text-danger">{genre?.name} </button>
-            ))}
-            {genres?.map(genre => (
-                <button onClick={() => addGenres(genre)} className="button bg-danger">{genre?.name} </button>
-            ))}
-            <button onClick={() => runShowdown()} disabled={!selectedGenres?.length}>Showdown</button>
+            <div className='genres-div container text-center mt-3'>
+                {selectedGenres?.map(genre => (
+                    <button onClick={() => removeGenres(genre)} className="button bg-warning text-danger">{genre?.name} </button>
+                ))}
+                {genres?.map(genre => (
+                    <button onClick={() => addGenres(genre)} className="button bg-danger">{genre?.name} </button>
+                ))}
+                <br />
+                <button className='button bg-success mt-2' onClick={async () => await runShowdown()} disabled={!selectedGenres?.length}>Showdown!</button>
+            </div>
         </>
     )
 }
