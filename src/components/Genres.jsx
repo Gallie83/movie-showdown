@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import '../styles/Genres.css'
 import genreID from '../utils/genreID';
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+
 
 const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, setMovies, selectedMovies, setSelectedMovies, randomNumber, setRandomNumber }) => {
 
@@ -79,16 +81,26 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
 
     return (
         <>
-            <div className='genres-div container text-center mt-3'>
-                {selectedGenres?.map(genre => (
-                    <button onClick={() => removeGenres(genre)} className="button bg-warning text-danger">{genre?.name} </button>
-                ))}
-                {genres?.map(genre => (
-                    <button onClick={() => addGenres(genre)} className="button bg-danger">{genre?.name} </button>
-                ))}
-                <br />
-                <button className='button bg-success mt-2' onClick={async () => await runShowdown()} disabled={!selectedGenres?.length}>Showdown!</button>
-            </div>
+            <Sidebar className='sidebar mt-3 w-25'>
+                <Menu>
+                    {/* <SubMenu label="Charts">
+                        <MenuItem> Pie charts </MenuItem>
+                        <MenuItem> Line charts </MenuItem>
+                    </SubMenu>
+                    <MenuItem> Documentation </MenuItem>
+                    <MenuItem> Calendar </MenuItem> */}
+                    <div className='genres-div container text-center mt-3'>
+                        {selectedGenres?.map(genre => (
+                            <button onClick={() => removeGenres(genre)} className="button col-5 bg-warning text-danger">{genre?.name} </button>
+                        ))}
+                        {genres?.map(genre => (
+                            <button onClick={() => addGenres(genre)} className="button col-5 bg-danger">{genre?.name} </button>
+                        ))}
+                        <br />
+                        <button className='button bg-dark text-danger mx-auto p-3 w-100' onClick={async () => await runShowdown()} disabled={!selectedGenres?.length}>Showdown!</button>
+                    </div>
+                </Menu>
+            </Sidebar>
         </>
     )
 }

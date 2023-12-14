@@ -3,10 +3,6 @@
     overflow: hidden;
 }
 
-.movie-poster {
-    height: 18rem;
-}
-
 .movie-title {
     font-size: 1.2rem;
     font-weight: 600;

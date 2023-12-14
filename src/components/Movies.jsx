@@ -46,7 +46,7 @@ const Movies = () => {
 
     // console.log(movies.length);
     return (
-        <>
+        <div className='d-flex m-2'>
             <Genres
                 genres={genres}
                 setGenres={setGenres}
@@ -58,22 +58,20 @@ const Movies = () => {
                 setSelectedMovies={setSelectedMovies}
                 randomNumber={randomNumber}
                 setRandomNumber={setRandomNumber}
-
             />
-            <Container className='fetch-container'>
+            <Container className='fetch-container w-75 float-end'>
                 {/* Returns random section of 5 movies and maps to ContentCard */}
                 {selectedMovies.map(selectedMovie => (
 
-                    <Container className='content-container m-1 mt-5'>
+                    <Container className='content-container m-1'>
                         <ContentCard movie={selectedMovie} key={selectedMovie?.id} />
                     </Container>
 
                 ))}
 
             </Container>
-        </>
+        </div>
     )
-
 }
 export default Movies
 

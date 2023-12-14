@@ -1,6 +1,7 @@
 .fetch-container {
     display: flex;
-    max-width: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-container {
@@ -12,4 +13,5 @@
     border: 1px solid black;
     cursor: pointer;
     margin: 1rem;
+    /* filter: sepia(1); */
 }
