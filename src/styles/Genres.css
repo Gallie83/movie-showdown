@@ -12,7 +12,7 @@
     display: inline-block;
     /* font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif; */
     font-family: 'Montserrat';
-    font-size: 12px;
+    /* font-size: 12px; */
     font-weight: 800;
     line-height: 16px;
     padding: .5rem .2rem;
@@ -32,4 +32,6 @@
 
 .showdown-btn {
     border: 2px solid black;
+    font-size: xx-large;
+    font-family: 'Holtwood One SC';
 }

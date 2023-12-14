@@ -46,15 +46,12 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
 
     // Stores 5 random movies from the fetchMovies request in array and sets them as seletedMovies
     const populateSelectedMovies = function () {
-        console.log(movies);
-
         const output = [];
+        console.log(movies)
         movies.splice(Math.floor(Math.random() * movies.length), 5).map(movie => {
             output.push(movie);
-            console.log(movie);
         })
         setSelectedMovies(output);
-        console.log(selectedMovies);
     }
 
     useEffect(() => {
@@ -81,7 +78,7 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
 
     return (
         <>
-            <Sidebar className='sidebar mt-3 w-25'>
+            <Sidebar className='sidebar w-25'>
                 <Menu>
                     {/* <SubMenu label="Charts">
                         <MenuItem> Pie charts </MenuItem>
@@ -97,7 +94,10 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
                             <button onClick={() => addGenres(genre)} className="button col-5 bg-danger">{genre?.name} </button>
                         ))}
                         <br />
-                        <button className='button bg-dark text-danger mx-auto p-3 w-100' onClick={async () => await runShowdown()} disabled={!selectedGenres?.length}>Showdown!</button>
+                        {selectedGenres.length != 0 &&
+                            <button className='button showdown-btn bg-dark text-danger mx-auto p-3 w-100'
+                                onClick={async () => await runShowdown()}> Showdown!</button>
+                        }
                     </div>
                 </Menu>
             </Sidebar>

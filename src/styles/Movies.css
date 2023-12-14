@@ -7,11 +7,11 @@
 .content-container {
     flex-direction: column;
     display: flex;
-    background-color: red;
+    background-color: #C38945;
     padding: 1rem;
     box-shadow: 0 3px 10px 0 #aaa;
     border: 1px solid black;
     cursor: pointer;
     margin: 1rem;
-    /* filter: sepia(1); */
+    filter: sepia(.2);
 }
