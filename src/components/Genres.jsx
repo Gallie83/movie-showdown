@@ -78,7 +78,7 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, movies, 
 
     return (
         <>
-            <Sidebar className='sidebar w-25'>
+            <Sidebar className='sidebar w-25 mt-5 mb-5 pb-1 pt-1'>
                 <Menu>
                     {/* <SubMenu label="Charts">
                         <MenuItem> Pie charts </MenuItem>

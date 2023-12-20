@@ -1,3 +1,4 @@
+import { styled } from "styled-components";
 import React, { useEffect, useState } from 'react';
 import { img500x500 } from "../utils/imageLink";
 import '../styles/ContentCard.css'
@@ -6,42 +7,54 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 const ContentCard = ({ movie, showdownResult, setShowdownResult }) => {
+
+    // const [movieOne, setMovieOne] = useState([]);
+    // const [movieTwo, setMovieTwo] = useState([]);
+
+    // const assignMovieOne = async movie => {
+    //     let pick = [movie?.id];
+    //     setMovieOne(pick);
+    //     console.log(movieOne);
+    // }
+
+    // const assignMovie = movie => {
+    //     let pick = [movie?.id];
+    //     setMovieOne(pick);
+    //     console.log(movieOne);
+    // }
+
     // Stores users movie choice
     const [userChoices, setUserChoices] = useState([]);
 
 
-    // useEffect(() => {
-    //     if (userChoices.length > 1) {
-    //         console.log(userChoices)
-    //         const selectedObject = userChoices[userChoices.length - 1];
-    //         const previousObject = userChoices[userChoices.length - 2];
-    //         if (selectedObject === previousObject) {
-    //             console.log('W');
-    //             console.log(userChoices);
+    useEffect(() => {
+        if (userChoices.length === 2) {
+            console.log("userChoices in useEffect:", userChoices);
 
-    //             setShowdownResult('W')
-    //         } else {
-    //             console.log('L');
-    //             setShowdownResult('L')
-    //             console.log(userChoices);
-    //         }
-    //     }
-    //     // Update the previous state reference
-    //     prevUserChoicesRef.current = userChoices;
-    // }, [userChoices]);
+            if (userChoices[0] === userChoices[1]) {
+                console.log('W');
+            } else {
+                console.log('L');
+            }
+            // Reset choices after comparison
+            setUserChoices([]);
+        }
+    }, [userChoices]);
 
     const handleObjectSelect = (selectedObject) => {
-        if (userChoices.length > 0 && selectedObject !== userChoices[0]) {
-            console.log('L');
-            setShowdownResult('L')
-            console.log(userChoices);
-        } else if (userChoices.length > 0 && selectedObject === userChoices[0]) {
-            // Checks if movie choices were a match
-            setUserChoices((prevChoices) => [...prevChoices, selectedObject]);
-            console.log('W')
-            console.log(userChoices)
+        // Checks if movie choices were a match
+        if (userChoices.includes(selectedObject)) {
+            console.log("Duplicate choice:", selectedObject);
+            return;
         }
+
+        // Update choices
+        const updatedChoices = [...userChoices, selectedObject].slice(-2);
+        console.log("Updated choices:", updatedChoices);
+        setUserChoices(updatedChoices);
     };
+
+
 
     return <div className="content-card" onClick={() => handleObjectSelect(movie?.title)}>
         <img className="movie-poster img-fluid" src={`${img500x500}/${movie?.poster_path}`} />

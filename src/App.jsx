@@ -5,7 +5,7 @@ import './styles/App.css'
 
 function App() {
 
-  return <>
+  return <div className='bg-dark'>
     <nav className='nav'>
       Movie Showdown
     </nav>
@@ -16,7 +16,7 @@ function App() {
     <Movies></Movies>
 
 
-  </>
+  </div>
 
 }
 
